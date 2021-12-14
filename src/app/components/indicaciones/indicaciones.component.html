@@ -1,0 +1,16 @@
+
+<article class="services-container">
+    <section *ngFor="let analisi of analisis"
+    class="services-service">
+    <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h6 class="card-title">{{analisi.nombre | uppercase}}</h6>
+            
+
+            <button [routerLink]="['/', analisi.codigo]" (click)="navigate()" class="btn btn-primary">preparacion</button>
+          </div>
+        </div>
+    </section>
+    
+    </article>
+    
