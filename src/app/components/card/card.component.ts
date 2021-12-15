@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-card',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  @Input() service: any = {}
+  @Input('index') i: number = 0;
+  @Output() clickCard = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
-  navigate(){
-    console.log('click');
-  }
+  // avisar(){
+  //   console.log('click hijo');
+  //   this.clickCard.emit('mensaje al padre desde el hijo');
+  // }
 
 }

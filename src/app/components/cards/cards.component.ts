@@ -10,11 +10,14 @@ export class CardsComponent implements OnInit {
  
   services: any[] = []
   
+  
   constructor(private servsvc: ServiciosService) {
     this.services = this.servsvc.services;
   }
 
   ngOnInit(): void {}
+
+
 
   navigate() {
     console.log('click');

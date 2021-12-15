@@ -57,10 +57,19 @@ export class ServiciosService {
     },
   ];
 
+  filtered: any[] = [];
   constructor() {}
+
   getServicio(codigo: number) {
     return this.services[codigo];
   
+  }
+
+  filterServicios(text: string) {
+    this.filtered = this.services.filter((service) =>
+      service.nombre.toLowerCase().includes(text.toLowerCase())
+    );
+    console.log(this.filtered);
   }
 
   
