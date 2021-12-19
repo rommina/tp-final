@@ -62,13 +62,15 @@ export class IndicacionesComponent implements OnInit {
 
   ];
 
-  // constructor(private actRoute: ActivatedRoute, private servsrv: ServiciosService) {
-  //   this.actRoute.params.subscribe((params) => {
-  //     this.analisis= this.servsrv.getServicio(params['id']);
-  //     console.log(this.analisis);
+
+  
+  //  constructor(private actRoute: ActivatedRoute, private servsrv: ServiciosService) {
+  //  this.actRoute.params.subscribe((params) => {
+  //      this.analisis = this.servsrv.getServicio(params['id']);
+  //      console.log(this.analisis);
      
-  //   });
-  // }
+  //  });
+  //  }
 
   ngOnInit(): void {}
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardsComponent } from './components/cards/cards.component';
-import { CardsfilteredComponent } from './components/cardsfiltered/cardsfiltered.component';
+
 import { IndicacionesComponent } from './components/indicaciones/indicaciones.component';
 
 const routes: Routes = [
@@ -16,17 +16,10 @@ const routes: Routes = [
     component: CardsComponent
   },
   {
-    path: 'indicaciones/:codigo',
+    path: 'indicaciones/:id',
     component: IndicacionesComponent
    
   },
-  {
-    path: 'filtered',
-    component: CardsfilteredComponent
-  },
-
- 
-  
   {
     path: '**',
     redirectTo: 'home',

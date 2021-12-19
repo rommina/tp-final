@@ -11,7 +11,9 @@ import { CardsComponent } from './components/cards/cards.component';
 import { IndicacionesComponent } from './components/indicaciones/indicaciones.component';
 import { ObrasocialesComponent } from './components/obrasociales/obrasociales.component';
 import { FormsModule } from '@angular/forms';
-import { CardsfilteredComponent } from './components/cardsfiltered/cardsfiltered.component';
+import { HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,15 @@ import { CardsfilteredComponent } from './components/cardsfiltered/cardsfiltered
     CardsComponent,
     IndicacionesComponent,
     ObrasocialesComponent,
-    CardsfilteredComponent
+    FooterComponent,
+    HeaderComponent,
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

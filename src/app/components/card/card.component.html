@@ -1,7 +1,7 @@
 
 <div class="card" style="width: 100%">
   <img
-    src= "/assets/labo2.jpg"
+   [src]="service.imagen"
   />
   <div class="card-body">
     <h5 class="card-title">{{ service.nombre | uppercase }}</h5>
@@ -15,12 +15,6 @@
       Detalles
     </button>
     
-    <!-- <button
-      
-      (click)="avisar()"
-      class="btn btn-primary"
-    >
-      Avisar
-    </button> -->
+  
   </div>
 </div>

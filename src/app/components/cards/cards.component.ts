@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosService } from 'src/app/services/servicios.service';
+import { ServiciosService, service } from 'src/app/services/servicios.service';
 
 @Component({
   selector: 'app-cards',
@@ -8,11 +8,15 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 })
 export class CardsComponent implements OnInit {
  
-  services: any[] = []
-  
+  services: service[] = [];
   
   constructor(private servsvc: ServiciosService) {
-    this.services = this.servsvc.services;
+   // this.services = this.servsvc.services;
+   this.servsvc.getServices().subscribe((services) =>{
+     console.log(services);
+      this.services= services;
+
+    });  
   }
 
   ngOnInit(): void {}

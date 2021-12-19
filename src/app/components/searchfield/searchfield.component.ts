@@ -9,6 +9,7 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 })
 export class SearchfieldComponent implements OnInit {
   search: string = '';
+  clear: boolean= false;
   constructor( private serscv: ServiciosService) {} 
 
   ngOnInit(): void {
@@ -17,9 +18,12 @@ export class SearchfieldComponent implements OnInit {
   filter($event:any) {
     $event.preventDefault();
     this.serscv.filterServicios(this.search.trim());
-    
     this.search= '';
- 
+    this.clear= true;
+   }
+   onclear() {
+     this.serscv.resetServicios();
+     this.clear = false;
    }
 }
 
