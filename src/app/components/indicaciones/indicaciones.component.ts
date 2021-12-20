@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { subscribeOn } from 'rxjs';
 import { ServiciosService } from 'src/app/services/servicios.service';
 
 @Component({
@@ -11,13 +12,13 @@ export class IndicacionesComponent implements OnInit {
   analisis: any[] = [
     {
       _id: {
-        $oid: '61b669fc955b9a4a6505ba62',
+        $oid: '61bf73810959cbbaa36883eb',
       },
       codigo: '0002',
       nombre: 'ACETONURIA',
       UB: '1,00',
       frecuencia: 'PMO',
-      idprep: '61af48f15dec548015ec87bf',
+      idprep: '8 hs de ayuno',
     },
     {
       _id: {
@@ -27,7 +28,7 @@ export class IndicacionesComponent implements OnInit {
       nombre: 'ANTINUCLEARESANTICUERPOS(FAN/ANA/AAN)',
       UB: '7,00',
       frecuencia: 'PMO',
-      idprep: '61af48f15dec548015ec87bf',
+      idprep: '12 hs ayuno',
     },
     {
       _id: {
@@ -37,7 +38,7 @@ export class IndicacionesComponent implements OnInit {
       nombre: 'CALCEMIA TOTAL(Ca)',
       UB: '1,50',
       frecuencia: 'PMO',
-      idprep: '61af48f15dec548015ec87bf',
+      idprep: '4 hs de ayuno',
     },
     {
       _id: {
@@ -47,7 +48,7 @@ export class IndicacionesComponent implements OnInit {
       nombre: "CEACARCINOEMBRIOGENICO",
       UB: "12,50",
       frecuencia: "PMO",
-      idprep: "61af48f15dec548015ec87bf"
+      idprep: "8 hs de ayuno"
   },
   {
     _id: {
@@ -57,12 +58,17 @@ export class IndicacionesComponent implements OnInit {
     nombre: "COLESTEROLTOTAL",
     UB: "1,50",
     frecuencia: "PMO",
-    idprep: "61af48f15dec548015ec87be"
+    idprep: "12 hs de ayuno con cena liviana"
 }
 
   ];
 
-
+constructor(private servsrv: ServiciosService){
+  this.servsrv.getAnalisis().subscribe((resp: any)=> {
+    console.log('rta:', resp);
+  });
+  
+}
   
   //  constructor(private actRoute: ActivatedRoute, private servsrv: ServiciosService) {
   //  this.actRoute.params.subscribe((params) => {

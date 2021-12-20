@@ -6,11 +6,9 @@
           <div class="card-body">
             <h6 class="card-title">{{osocial.nombre | uppercase}}</h6>
             <p class="card-text">{{osocial.digitales}}</p> 
-
-            <button [routerLink]="['/', osocial.codigo]" (click)="navigate()" class="btn btn-primary">preparacion</button>
           </div>
         </div>
     </section>
-    
+    <button [routerLink]="['/']" (click)="navigate()" class="btn btn-primary">Anterior</button>
     </article> 
 

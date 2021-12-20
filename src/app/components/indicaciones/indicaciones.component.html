@@ -1,11 +1,35 @@
-
 <article class="services-container">
-    <section 
+  <section *ngFor="let analisi of analisis"
+class="services-service">
+  <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h6 class="card-title">{{analisi.nombre | uppercase}}</h6>
+          <h6 class="card-title">Preparación:{{analisi.idprep}} </h6>
+             
+        </div>
+      </div>
+  </section>
+  <button [routerLink]="['/home',]" (click)="navigate()" class="btn btn-primary">Anterior</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- 
+<article class="services-container">
+    <section  *ngFor="let analisi of analisis; let i = index"
     class="services-service">
+      
     <div class="card" style="width: 100%;">
           <div class="card-body">
             <h6 class="card-title"></h6>
-            
+            <h5 class="card-title">{{ analisi.nombre | uppercase }}</h5>
+            <p class="card-text">{{ analisi.descripcion }}</p>
+        
 
             <button [routerLink]="['/home',]" (click)="navigate()" class="btn btn-primary">Anterior</button>
           </div>
@@ -13,4 +37,4 @@
     </section>
     
     </article>
-    
+     -->

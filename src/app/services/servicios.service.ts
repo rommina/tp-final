@@ -2,6 +2,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { compileDeclareNgModuleFromMetadata } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Analisis, Obrasocial } from '../models/api-models';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,7 @@ export class ServiciosService {
     [
       {
           codigo: 1,
-          nombre: 'indicaciones',
+          nombre: 'analisis',
           imagen: 'assets/Indicaciones.svg',
           descripcion:
             'Aquí podrá consultar como debe prepararse para concurrir al laboratorio, según los análisis solicitados por su Médico.',
@@ -21,8 +23,7 @@ export class ServiciosService {
           codigo: 2,
           nombre: 'obras sociales',
           imagen: 'assets/ObraSocial.svg',
-            
-           descripcion: 'Listado de las obras sociales que atendemos. Si no encuentra su cobertura médica utilice el formulario de contacto para consultarnos.',
+          descripcion: 'Listado de las obras sociales que atendemos. Si no encuentra su cobertura médica utilice el formulario de contacto para consultarnos.',
         },
         {
           codigo: 3,
@@ -55,32 +56,26 @@ export class ServiciosService {
 
     ];
 
+
     constructor (private http: HttpClient) { }
 
 
- // filtered: any[] = [];
-  //constructor() {}
-
-  // getServicio(codigo: number) {
-  //   return this.services[codigo];
-  
-  // }
-
-  // filterServicios(text: string) {
-  //   this.filtered = this.services.filter((service) =>
-  //     service.nombre.toLowerCase().includes(text.toLowerCase())
-  //   );
-  //   console.log(this.filtered);
-  // }
-
+ 
   services$: BehaviorSubject<service[]> = new BehaviorSubject(this.initialServices);
+  
+   
+ getAnalisis() {
+   return this.http.get<Analisis>(`${environment.baseUrl}analisis`);
 
-   //analisis$: BehaviorSubject<analisis[>]
+ }
+ getObraSocial() {
+  return this.http.get<Obrasocial>(`${environment.baseUrl}obrasocial`);
+
+}
+  
   
   getServices():Observable<service[]> {
-    // this.http.get('https://final-superheroes-backend.herokuapp.com/personajes').subscribe((resp)=> {
-    //   console.log('respuesta: ng', resp);
-    // });
+   
      return this.services$.asObservable();
    }
 
@@ -95,13 +90,11 @@ export class ServiciosService {
     this.services$.next(this.initialServices);
   }
    }
+
+   export interface service {
+    codigo:  number
+    nombre: string
+    imagen: string
+    descripcion: string
   
-
-
-export interface service {
-  codigo:  number
-  nombre: string
-  imagen: string
-  descripcion: string
-
-}
+  }
