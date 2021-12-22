@@ -34,7 +34,7 @@ export class ServiciosService {
         },
         {
           codigo: 4,
-          nombre: 'domicilios',
+          nombre: 'extracciones a domicilio',
           imagen: 'assets/Domicilio.svg',
           descripcion:
             'Complete el formulario para solicitar la toma de las muestras en su domicilio.',

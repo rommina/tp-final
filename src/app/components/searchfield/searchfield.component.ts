@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from 'src/app/services/servicios.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -10,18 +12,24 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 export class SearchfieldComponent implements OnInit {
   search: string = '';
   clear: boolean= false;
-  constructor( private serscv: ServiciosService) {} 
+  rutaActual: string =this.router.url;
 
-  ngOnInit(): void {
+  constructor( private serscv: ServiciosService, private actRoute: ActivatedRoute, private router: Router, private location: Location) {} 
+
+  ngOnInit(): void { 
+    this.actRoute.params.subscribe((pararms) => {
+    if (pararms['search'])
+      this.search = pararms['search'];
+  })
   }
+ 
   
   filter($event:any) {
     $event.preventDefault();
     this.serscv.filterServicios(this.search.trim());
-    this.search= '';
     this.clear= true;
    }
-   onclear() {
+   onClear() {
      this.serscv.resetServicios();
      this.clear = false;
    }

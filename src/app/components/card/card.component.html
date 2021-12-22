@@ -1,11 +1,11 @@
 
-<div class="card" style="width: 100%">
+<div class="card">
   <img
    [src]="service.imagen"
   />
   <div class="card-body">
-    <h5 class="card-title">{{ service.nombre | uppercase }}</h5>
-    <p class="card-text">{{ service.descripcion }}</p>
+  <strong> <p class="card-title">{{ service.nombre | uppercase }}</p></strong>
+    <p class="card-text sm-3" ><small>{{ service.descripcion }}</small></p>
 
     <button
       [routerLink]="['/indicaciones', i]"

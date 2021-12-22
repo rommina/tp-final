@@ -1,16 +1,53 @@
-<article class="services-container">
+<!-- <article class="services-container">
   <section *ngFor="let analisi of analisis"
 class="services-service">
   <div class="card" style="width: 100%;">
         <div class="card-body">
-          <h6 class="card-title">{{analisi.nombre | uppercase}}</h6>
-          <h6 class="card-title">Preparación:{{analisi.idprep}} </h6>
+          <div class="col-md-4">
+            <img src='assets/Analisis.jpg'/>
+          </div>
+         <strong> <p class="card-title">{{analisi.nombre | uppercase}}</p></strong>
+          <p class="card-title">Preparación:{{analisi.idprep}} </p>
              
         </div>
       </div>
   </section>
-  <button [routerLink]="['/home',]" (click)="navigate()" class="btn btn-primary">Anterior</button>
+  <div class="d-grid gap-2 d-md-3 mr-3 justify-content-md-end">
+  <button [routerLink]="['/home',]" (click)="navigate()" class="btn btn-primary me-md-2">Anterior</button>
+</div>
+</article> -->
+<div>
+<h1>ANALISIS</h1>
+</div>
+<article class="services-container ">
+  <div class="row">
+  <section *ngFor="let analisi of analisis" class="services-service col-md-6">
+    <div class="card mb-3">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <img src='assets/Analisis.jpg' />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+          <strong>  <p class="card-title">{{ analisi.nombre | uppercase }}</p></strong>
+            <p class="card-text">
+              <small>{{ analisi.idprep }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
 </article>
+<div class="d-grid gap-2 d-md-3 mr-3 justify-content-md-end">
+  <button [routerLink]="['/']" (click)="navigate()" class="btn btn-primary mb-3">
+    Anterior
+  </button>
+</div>
+
+
 
 
 

@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { AltaComponent } from './components/alta/alta.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { HeaderComponent } from './components/header/header.component';
     ObrasocialesComponent,
     FooterComponent,
     HeaderComponent,
+    LoginComponent,
+    AltaComponent,
  
   ],
   imports: [

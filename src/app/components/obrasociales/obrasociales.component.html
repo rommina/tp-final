@@ -1,14 +1,30 @@
+<div>
+  <h1>OBRAS SOCIALES</h1>
+  </div>
 
- <article class="services-container">
-    <section *ngFor="let osocial of osociales"
-    class="osociales-osocial">
-    <div class="card" style="width: 100%;">
+<article class="services-container ">
+  <div class="row">
+  <section *ngFor="let osocial of osociales" class="osociales-osocial col-md-6">
+    <div class="card mb-3">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <img src="{{ osocial.imagen }}" />
+        </div>
+        <div class="col-md-8">
           <div class="card-body">
-            <h6 class="card-title">{{osocial.nombre | uppercase}}</h6>
-            <p class="card-text">{{osocial.digitales}}</p> 
+          <strong>  <p class="card-title">{{ osocial.nombre | uppercase }}</p></strong>
+            <p class="card-text">
+              <small>{{ osocial.digitales }}</small>
+            </p>
           </div>
         </div>
-    </section>
-    <button [routerLink]="['/']" (click)="navigate()" class="btn btn-primary">Anterior</button>
-    </article> 
-
+      </div>
+    </div>
+  </section>
+</div>
+<div class="d-grid gap-2 d-md-3 mr-3 justify-content-md-end">
+  <button [routerLink]="['/']" (click)="navigate()" class="btn btn-primary mb-3">
+    Anterior
+  </button>
+</div>
+</article>
